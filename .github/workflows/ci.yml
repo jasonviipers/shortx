@@ -14,6 +14,9 @@ jobs:
       PATH: "${PATH}:${HOME}/.bun/bin"
 
     steps:
+    - name: Ensure tar is installed
+      run: sudo apt-get update && sudo apt-get install -y tar
+
     - uses: actions/checkout@v3
 
     - name: Install Bun
