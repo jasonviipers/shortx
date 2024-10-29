@@ -11,3 +11,12 @@ export type Language =
 	| 'Portuguese'
 	| 'Russian'
 	| 'Chinese';
+
+export type aspectRatioType = {
+	[key: string]: string[];
+};
+export const aspectRatio = {
+	tiktok: ['9:16'],
+	instagram: ['9:16', '4:5', '1:1'],
+	youtube: ['16:9', '9:16'],
+};

@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 
 import {PROMPT_TEMPLATE} from '@/constant/prompts';
 import {env} from '@/env';
-import {rateLimit} from '@/lib/redis';
+import {rateLimit} from '@/lib/services/redis-service';
 import {useAuthServer} from '@/server/auth/auth-server';
 import {db} from '@/server/db';
 import {content} from '@/server/db/schema';

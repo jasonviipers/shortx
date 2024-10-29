@@ -5,6 +5,7 @@
 			2,
 			"always",
 			["feat", "fix", "wip", "patch", "build", "docs", "refactor", "test", "chore", "revert"]
-		]
+		],
+		"header-max-length": [2, "always", 100]
 	}
 }

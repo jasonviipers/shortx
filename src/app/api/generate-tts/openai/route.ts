@@ -2,7 +2,7 @@ import {type NextRequest, NextResponse} from 'next/server';
 import OpenAI from 'openai';
 
 import {openai} from '@/app/api/generate-content/route';
-import {rateLimit} from '@/lib/redis';
+import {rateLimit} from '@/lib/services/redis-service';
 import {useAuthServer} from '@/server/auth/auth-server';
 import {db} from '@/server/db';
 import {audio} from '@/server/db/schema';
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
 		const audioBlob = new Blob([audioBuffer], {type: 'audio/mpeg'});
 		const audioUrl = URL.createObjectURL(audioBlob);
 
-		//Save into the database
+		//Save into the database and aws storage
 		if (!user.id) {
 			await db.insert(audio).values({
 				userId: user.id,
